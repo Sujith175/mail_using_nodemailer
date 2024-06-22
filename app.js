@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const app = express();
 const mail = require("./Controllers/mail");
+const demo = require("./Controllers/mail");
 
 dotenv.config();
 
