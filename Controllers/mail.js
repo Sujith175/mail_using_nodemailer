@@ -2,7 +2,7 @@ const express = require("express");
 const nodemailer = require("nodemailer");
 const router = express.Router();
 
-router.get("/sendmail", async (req, res, next) => {
+router.get("/sendmail", async (req, res) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     host: "smtp.gmail.com",
@@ -29,7 +29,7 @@ router.get("/sendmail", async (req, res, next) => {
     await transporter.sendMail(mailOptions);
     res.status(200).send("Mailed Successful");
   } catch (error) {
-    res.status(500).send("Something Went Wrong");
+    res.status(500).send(error);
     console.log(error);
   }
 });
