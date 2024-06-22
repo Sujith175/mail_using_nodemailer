@@ -2,10 +2,6 @@ const express = require("express");
 const nodemailer = require("nodemailer");
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.send("hello from mail router");
-});
-
 router.get("/sendmail", async (req, res) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
