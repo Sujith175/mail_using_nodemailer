@@ -2,8 +2,8 @@ const express = require("express");
 const nodemailer = require("nodemailer");
 const router = express.Router();
 
-router.get(async (req, res) => {
-  res.send("hello");
+router.get("/", (req, res) => {
+  res.send("hello from mail router");
 });
 
 router.get("/sendmail", async (req, res) => {
@@ -34,7 +34,7 @@ router.get("/sendmail", async (req, res) => {
     res.status(200).send("Mailed Successful");
   } catch (error) {
     res.status(500).send(error);
-    console.log(error);
+    console.error(error);
   }
 });
 
